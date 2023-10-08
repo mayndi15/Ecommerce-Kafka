@@ -64,3 +64,5 @@ public class UserService {
         return !result.next();
     }
 }
+
+//sudo mount -o remount,exec /tmp
