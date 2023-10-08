@@ -38,7 +38,12 @@ public class KafkaConsumers<T> implements Closeable {
             if (!records.isEmpty()) {
                 System.out.println("Found " + records.count() + " records");
                 for (var record : records) {
-                    parse.consume(record);
+                    try {
+                        parse.consume(record);
+                    } catch (Exception ex) {
+                        //so far, just logging the exception for this message
+                        ex.printStackTrace();
+                    }
                 }
             }
         }

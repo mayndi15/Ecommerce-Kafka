@@ -21,10 +21,10 @@ public class EmailService {
     private void parse(ConsumerRecord<String, String> record) {
         System.out.println("-------------------------------------------");
         System.out.println("Send email...");
-        System.out.println(record.key());
-        System.out.println(record.value());
-        System.out.println(record.partition());
-        System.out.println(record.offset());
+        System.out.println("key: " + record.key());
+        System.out.println("value: " + record.value());
+        System.out.println("partition: " + record.partition());
+        System.out.println("offset: " + record.offset());
 
         try {
             Thread.sleep(1000);

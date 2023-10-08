@@ -33,3 +33,17 @@ N
 service-fraud-detector/pom.xml,d/6/d66e21c53788ee5da6ccd41561a82cd74edf3bf5
 E
 service-order/pom.xml,4/0/406f6e4999054578597f831f6349c17d949a2adb
+f
+6service-user/src/main/java/br/com/ecommerce/Order.java,1/a/1a632b0dcae6328d0e3afa9d3c3031d29ef5d524
+l
+<service-user/src/main/java/br/com/ecommerce/UserService.java,5/9/5970ff1f6902e9743f429478710ea514df409922
+D
+service-user/pom.xml,3/6/36c1aae2fe34f59bbf5eeb50d0e296b90d906748
+N
+service-http-ecommerce/pom.xml,7/7/7712283598b24cad7a92b77065a4da46fcd3cd98
+p
+@service-http-ecommerce/src/main/java/br/com/ecommerce/Order.java,2/d/2d557194fbea74a972421c85f0bba301360d70a8
+w
+Gservice-http-ecommerce/src/main/java/br/com/ecommerce/OrderServlet.java,6/6/66aa16482a0f9355b5c041650095b608bef4bb49
+
+Oservice-http-ecommerce/src/main/java/br/com/ecommerce/HttpEcommerceService.java,4/3/43eb8e55cbe9dcd3dd13147ad8deb96a2d60a1a7
