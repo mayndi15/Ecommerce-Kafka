@@ -1,0 +1,12 @@
+
+\
+java:S6213":Rename this variable to not match a restricted identifier.(ŸÔ†¸üÿÿÿÿ8Ğ¥§Ã°1
+G	java:S106"+Replace this use of System.out by a logger.(ËŞõŒ8Ğ¥§Ã°1
+G	java:S106"+Replace this use of System.out by a logger.(Ÿüá8Ğ¥§Ã°1
+G	java:S106"+Replace this use of System.out by a logger.(ş¿ ²8Ğ¥§Ã°1
+L	java:S106"+Replace this use of System.out by a logger.(½±—„üÿÿÿÿ8Ñ¥§Ã°1
+G	java:S106"+Replace this use of System.out by a logger.(ŞãÉÙ8Ñ¥§Ã°1
+L	java:S106"+Replace this use of System.out by a logger.( ³·øÿÿÿÿ8Ñ¥§Ã°1
+{
+java:S2142"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8Ñ¥§Ã°1
+G	java:S106""+Replace this use of System.out by a logger.(™÷Û8Ñ¥§Ã°1

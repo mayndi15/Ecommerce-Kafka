@@ -1,0 +1,10 @@
+
+Q
+java:S1948"/Make "orderProducer" transient or serializable.(ù¼è¢úÿÿÿÿ8§ûÆÇ°1
+Q
+java:S1948"/Make "emailProducer" transient or serializable.(‘¬ÈÐÿÿÿÿÿ8§ûÆÇ°1
+f
+java:S2147,"DCombine this catch with the one at line 42, which has the same body.(è®ã¶øÿÿÿÿ8«ûÆÇ°1
+€
+java:S2142,"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(è®ã¶øÿÿÿÿ8«ûÆÇ°1
+F	java:S106&"+Replace this use of System.out by a logger.(…Þÿ`8¬ûÆÇ°1
