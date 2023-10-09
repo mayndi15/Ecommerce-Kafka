@@ -1,5 +1,6 @@
 package br.com.ecommerce;
 
+import br.com.ecommerce.kafka.CorrelationId;
 import br.com.ecommerce.kafka.KafkaProducers;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -30,10 +31,10 @@ public class OrderServlet extends HttpServlet {
             var orderId = UUID.randomUUID().toString();
 
             var order = new Order(orderId, amount, email);
-            orderProducer.send("ecommerce.new.order", email, order);
+            orderProducer.send("ecommerce.new.order", email, order, new CorrelationId(OrderServlet.class.getSimpleName()));
 
             var emailCode = "Thank you for your order! We are processing your order!";
-            emailProducer.send("ecommerce.send.email", email, emailCode);
+            emailProducer.send("ecommerce.send.email", email, emailCode, new CorrelationId(OrderServlet.class.getSimpleName()));
 
             System.out.println("New order sent successfully");
 

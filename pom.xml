@@ -16,6 +16,7 @@
         <module>service-order</module>
         <module>service-user</module>
         <module>service-http-ecommerce</module>
+        <module>service-reading-report</module>
     </modules>
 
     <properties>
