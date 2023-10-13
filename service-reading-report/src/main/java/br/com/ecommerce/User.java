@@ -13,6 +13,6 @@ public class User {
     }
 
     public String getReportPath() {
-        return "resources/" + uuid + "-report.txt";
+        return "target/" + uuid + "-report.txt";
     }
 }

@@ -1,4 +1,4 @@
-package br.com.ecommerce.kafka;
+package br.com.ecommerce;
 
 public class Message<T> {
 

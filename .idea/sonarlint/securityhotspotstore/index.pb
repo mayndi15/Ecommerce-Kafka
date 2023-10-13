@@ -47,3 +47,9 @@ p
 Oservice-http-ecommerce/src/main/java/br/com/ecommerce/HttpEcommerceService.java,4/3/43eb8e55cbe9dcd3dd13147ad8deb96a2d60a1a7
 w
 Gservice-http-ecommerce/src/main/java/br/com/ecommerce/OrderServlet.java,6/6/66aa16482a0f9355b5c041650095b608bef4bb49
+m
+=service-reading-report/src/main/java/br/com/ecommerce/IO.java,0/f/0f14677b5a07d59d67b520fe0e00e43377b19470
+o
+?service-reading-report/src/main/java/br/com/ecommerce/User.java,b/2/b2af23101803efc4904754a5a25a2466a2951547
+
+Oservice-reading-report/src/main/java/br/com/ecommerce/ReadingReportService.java,6/4/643d94a16b0954cc900317cb5a21e7e8f90e9ff6

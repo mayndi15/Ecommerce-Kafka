@@ -1,5 +1,7 @@
 package br.com.ecommerce.kafka;
 
+import br.com.ecommerce.CorrelationId;
+import br.com.ecommerce.Message;
 import br.com.ecommerce.gson.GsonSerializer;
 import org.apache.kafka.clients.producer.*;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -27,12 +29,12 @@ public class KafkaProducers<T> implements Closeable {
     }
 
     public void send(String topic, String key, T payload, CorrelationId correlationId) throws ExecutionException, InterruptedException {
-        Future<RecordMetadata> future = sendAsync(topic, key, payload, correlationId);
+        Future<RecordMetadata> future = sendAsync(topic, key, payload, correlationId.continueWith(topic));
         future.get();
     }
 
     public Future<RecordMetadata> sendAsync(String topic, String key, T payload, CorrelationId correlationId) {
-        var value = new Message<>(correlationId, payload);
+        var value = new Message<>(correlationId.continueWith(topic), payload);
         var record = new ProducerRecord<>(topic, key, value);
         Callback callback = (data, ex) -> {
             if (ex != null) {
