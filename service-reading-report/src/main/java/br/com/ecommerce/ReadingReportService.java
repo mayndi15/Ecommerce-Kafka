@@ -1,31 +1,33 @@
 package br.com.ecommerce;
 
-import br.com.ecommerce.kafka.KafkaConsumers;
-import br.com.ecommerce.kafka.Message;
+import br.com.ecommerce.services.ConsumerService;
+import br.com.ecommerce.services.ServiceRunner;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.Map;
-import java.util.concurrent.ExecutionException;
 
-public class ReadingReportService {
+public class ReadingReportService implements ConsumerService<User> {
 
-    private static final Path SOURCE = new File("src/main/resources/report.txt").toPath();
+    private static final Path SOURCE = new File("target/report.txt").toPath();
 
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
-        var reportService = new ReadingReportService();
-        try (var service = new KafkaConsumers<>(ReadingReportService.class.getSimpleName(),
-                "ecommerce.user.generate.reading.report",
-                reportService::parse,
-                Map.of())) {
-            service.run();
-        }
+    public static void main(String[] args) {
+        new ServiceRunner<>(ReadingReportService::new).start(4);
     }
 
-    private void parse(ConsumerRecord<String, Message<User>> record) throws IOException {
-        System.out.println("-------------------------------------------");
+    @Override
+    public String getTopic() {
+        return "ecommerce.user.generate.reading.report";
+    }
+
+    @Override
+    public String getConsumerGroup() {
+        return ReadingReportService.class.getSimpleName();
+    }
+
+    public void parse(ConsumerRecord<String, Message<User>> record) throws IOException {
+        System.out.println("---------------------------------------");
         System.out.println("Processing report for " + record.value());
         System.out.println("key: " + record.key());
         System.out.println("value: " + record.value());

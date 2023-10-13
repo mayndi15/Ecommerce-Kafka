@@ -1,4 +1,4 @@
-package br.com.ecommerce.kafka;
+package br.com.ecommerce;
 
 import java.util.UUID;
 

@@ -1,7 +1,6 @@
 package br.com.ecommerce;
 
 import br.com.ecommerce.kafka.KafkaConsumers;
-import br.com.ecommerce.kafka.Message;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -23,7 +22,7 @@ public class LogService {
     }
 
     private void parse(ConsumerRecord<String, Message<String>> record) {
-        System.out.println("-------------------------------------------");
+        System.out.println("---------------------------------");
         System.out.println("Log: " + record.topic());
         System.out.println("key: " + record.key());
         System.out.println("value: " + record.value());

@@ -1,6 +1,5 @@
 package br.com.ecommerce;
 
-import br.com.ecommerce.kafka.CorrelationId;
 import br.com.ecommerce.kafka.KafkaProducers;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;

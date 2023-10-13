@@ -7,6 +7,10 @@ public class Order {
     private final BigDecimal amount;
     private final String email;
 
+    public String getOrderId() {
+        return orderId;
+    }
+
     public Order(String orderId, BigDecimal amount, String email) {
         this.orderId = orderId;
         this.amount = amount;

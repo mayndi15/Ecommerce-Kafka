@@ -1,26 +1,25 @@
 package br.com.ecommerce;
 
-import br.com.ecommerce.kafka.KafkaConsumers;
-import br.com.ecommerce.kafka.Message;
+import br.com.ecommerce.services.ConsumerService;
+import br.com.ecommerce.services.ServiceRunner;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 
-import java.util.Map;
-import java.util.concurrent.ExecutionException;
+public class EmailService implements ConsumerService<String> {
 
-public class EmailService {
-
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
-        var emailService = new EmailService();
-        try (var service = new KafkaConsumers<>(EmailService.class.getSimpleName(),
-                "ecommerce.send.email",
-                emailService::parse,
-                Map.of())) {
-            service.run();
-        }
+    public static void main(String[] args) {
+        new ServiceRunner<>(EmailService::new).start(4);
     }
 
-    private void parse(ConsumerRecord<String, Message<String>> record) {
-        System.out.println("-------------------------------------------");
+    public String getConsumerGroup() {
+        return EmailService.class.getSimpleName();
+    }
+
+    public String getTopic() {
+        return "ecommerce.send.email";
+    }
+
+    public void parse(ConsumerRecord<String, Message<String>> record) {
+        System.out.println("----------------------------------------");
         System.out.println("Send email...");
         System.out.println("key: " + record.key());
         System.out.println("value: " + record.value());

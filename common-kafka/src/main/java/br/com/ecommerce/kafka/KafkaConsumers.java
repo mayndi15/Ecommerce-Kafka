@@ -1,5 +1,6 @@
 package br.com.ecommerce.kafka;
 
+import br.com.ecommerce.Message;
 import br.com.ecommerce.gson.GsonDeserializer;
 import br.com.ecommerce.gson.GsonSerializer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -17,7 +18,7 @@ import java.util.regex.Pattern;
 
 public class KafkaConsumers<T> implements Closeable {
     private final KafkaConsumer<String, Message<T>> consumer;
-    private final ConsumerFunction parse;
+    private final ConsumerFunction<T> parse;
 
     public KafkaConsumers(String groupId, String topic, ConsumerFunction<T> parse, Map<String, String> properties) {
         this(parse, groupId, properties);
@@ -46,7 +47,9 @@ public class KafkaConsumers<T> implements Closeable {
                         } catch (Exception ex) {
                             ex.printStackTrace();
                             var message = record.value();
-                            deadLetter.send("ecommerce.deadletter", message.getId().toString(), new GsonSerializer().serialize("", message), message.getId().continueWith("DeadLetter"));
+                            deadLetter.send("ecommerce.deadletter", message.getId().toString(),
+                                    new GsonSerializer().serialize("", message),
+                                    message.getId().continueWith("DeadLetter"));
                         }
                     }
                 }
@@ -62,6 +65,7 @@ public class KafkaConsumers<T> implements Closeable {
         properties.setProperty(ConsumerConfig.GROUP_ID_CONFIG, groupId);
         properties.setProperty(ConsumerConfig.CLIENT_ID_CONFIG, UUID.randomUUID().toString());
         properties.setProperty(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, "1");
+        properties.setProperty(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
         properties.putAll(overrideProperties);
         return properties;
     }
